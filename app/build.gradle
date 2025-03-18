@@ -15,8 +15,24 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file("./eye.jks")
+            storePassword "123456"
+            keyAlias "eye"
+            keyPassword "123456"
+        }
+        release {
+            storeFile file("./eye.jks")
+            storePassword "123456"
+            keyAlias "eye"
+            keyPassword "123456"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
